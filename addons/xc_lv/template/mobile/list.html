@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="WEc4RG5LbVBvEUB0Og8kOB0KdC8UFChgEyNbLCR9BQltPlIAJQZcIA==">
+    <title>首页</title>
+	<link href="css/actShow.css" rel="stylesheet">
+	<script src="js/jquery.js"></script>
+	<script src="js/glide.js"></script>
+	<link rel="stylesheet" href="css/glide.css" />
+	
+	<link href="/addons/xc_lv/css/actShow.css" rel="stylesheet">
+	<script src="/addons/xc_lv/js/jquery.js"></script>
+	<script src="/addons/xc_lv/js/glide.js"></script>
+	<link rel="stylesheet" href="/addons/xc_lv/css/glide.css" />
+</head>
+<body class="page-two outDoor" onselectstart="return false;">        
+		<div id="Carousel" class="glide glide--slider glide--horizontal"style="width: 100%;">
+			<div class="glide__wrapper">
+				<ul class="glide__track" style=" transition: all 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s; transform: translate3d(0px, 0px, 0px);">
+				{loop $advs $adv}
+					<li class="glide__slide active" data-glide-autoplay="3000"style="width: 100%;" >
+						 <a href="{if empty($adv['link'])}#{else}{$adv['link']}{/if}">
+							<img src="{php echo tomedia($adv['thumb']);}" title="{$adv['advname']}" style="width: 100%;"/>
+						</a>
+					</li>
+				 {/loop}	
+				</ul>
+			</div>
+		<div class="glide__bullets"></div>
+		</div>
+	<script>
+		var carousel = $('#Carousel').glide({
+			type: 'slider',
+			startAt: 1, //起始
+			autoplay: 3000, //自动轮播时间
+			animationDuration: 600, //每轮播一个模块所需时间
+			touchDistance: 60
+		});
+	</script>
+	
+	
+    <div class="home-actClsy">
+      <ul class="clearfix">
+		{loop $category $item}
+		  <a href="{php echo $this->createMobileUrl('list2', array('parentid' => $item['id']))}">
+			  <li class="actClsy">
+					<div class="actClsy-icon"><img src="/attachment/{$item['thumb']}"></div>
+					<p>{$item['name']}</p>
+			  </li>
+		  </a>
+		{/loop}
+       </ul>
+    </div>
+     <div class="home-hotact">
+        <div class="hotact-title align-center">
+            <span>热门推荐</span>
+        </div>
+		
+{loop $rlist $r}
+  <div class="hotact-content align-center" data-value="100385">
+	  <a href="{php echo $this->createMobileUrl('detail', array('id' => $r['id']))}">
+		<div class="act-introduce">
+			<div class="act-live-img">
+				<img src="{php echo tomedia($r['thumb'])}">
+				 <!-- <div class="act-live-title align-center">
+					<div class="title-sign">
+	<span>自驾</span><span class="line-hr">|</span><span>休闲</span><span class="line-hr">|</span><span>温泉</span>                        </div>
+				</div> -->
+				<!-- <div class="act-intime"> -->
+					<!-- <span class="act-time-p">11</span><span class="act-time-n">月</span> -->
+				<!-- </div> -->
+			</div>
+			<div class="act-introduce-text align-center">
+			  <div class="triper-title">
+				<p class="triper-deco">{$r['title']}</p>
+				<span class="act-price">
+				   <span class="price price_p">￥</span><span class="price">{$r['productprice']}</span><span class="ps-624">&nbsp;起</span>
+				</span>
+			  </div>
+			</div>
+			</div>
+		</a>
+   </div>
+   
+{/loop}
+   </div>
+	
+
+<style>
+
+	.footerbar{position:fixed; left:0; bottom:0px; width:100%; height:50px; background:#00aeff; border-top:1px solid #009ee8; z-index:5;}
+
+	.footerbar a{display:block; float:left; padding:5px 0; width:24.5%; height:50px; text-align:center; color: #ffffff; text-decoration:none; border-left:1px solid #009ee8;}
+
+	.footerbar a:first-child{border-left:0;}
+
+	.footerbar a i{font-size:20px; display:block;}
+
+	#footer { position:fixed;width:100%;left:0;bottom:0px;height:30px;line-height:30px;color:#fff;background:#333;border-top:0;}
+
+</style>
+
+
+
+<div class="footerbar">
+
+	<a href="{php echo $this->createMobileUrl('list')}"><i class="fa fa-home"></i> 旅游首页</a>
+
+	<!--<a href="{php echo $this->createMobileUrl('mycart')}"><i class="fa fa-shopping-cart"></i> 购物车</a>-->
+
+	<a href="{php echo $this->createMobileUrl('myorder',array('status'=>5))}"><i class="fa fa-calendar"></i> 我的订单</a>
+
+	<a href="{php echo $this->createMobileUrl('firm')}"><i class="fa fa-star"></i> 团队定制</a>  
+
+	<a href="tel:{$set['phone']}"><i class="fa fa-phone"></i> 电话咨询</a>
+
+</div>
+
+
+
+
+  
+
+</body></html>

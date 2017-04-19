@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="false">
+		<name><![CDATA[码上点餐|外卖|餐饮]]></name>
+		<identifie><![CDATA[weisrc_dish]]></identifie>
+		<version><![CDATA[3.2.5]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[微点餐]]></ability>
+		<description><![CDATA[微点餐]]></description>
+		<author><![CDATA[温州微生活 QQ:1727475936]]></author>
+		<url><![CDATA[http://www.wx866.com]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="首页入口" do="wapindex" />
+			<entry title="门店列表入口" do="waprestList" />
+			<entry title="商品列表入口" do="waplist" />
+			<entry title="智能点餐入口" do="wapselect" />
+			<entry title="我的订单入口" do="orderlist" />
+		</cover>
+		<menu>
+			<entry title="门店管理" do="stores" />
+			<entry title="订单管理" do="allorder" />
+			<entry title="账号管理" do="account" />
+		    <entry title="门店类型" do="type" />
+		    <entry title="区域管理" do="area" />
+			<entry title="广告管理" do="ad" />
+			<entry title="会员管理" do="allfans" />
+			<entry title="账号管理" do="account" />
+			<entry title="模板管理" do="template" />
+			<entry title="基本设置" do="setting" />
+		</menu>
+		<home>
+			<entry title="首页入口" do="wapindex" />
+			<entry title="门店列表入口" do="waprestList" />
+			<entry title="我的订单入口" do="order" />
+			<entry title="我的订单" do="orderlist" />
+		</home>
+	</bindings>
+  <install><![CDATA[
+  
+  CREATE TABLE IF NOT EXISTS `ims_wechat_attachment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `acid` int(10) unsigned NOT NULL,
+  `uid` int(10) unsigned NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `attachment` varchar(255) NOT NULL,
+  `media_id` varchar(255) NOT NULL,
+  `width` int(10) unsigned NOT NULL,
+  `height` int(10) unsigned NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `model` varchar(25) NOT NULL,
+  `tag` varchar(5000) NOT NULL,
+  `createtime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `uniacid` (`uniacid`),
+  KEY `media_id` (`media_id`),
+  KEY `acid` (`acid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `ims_wechat_news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned DEFAULT NULL,
+  `attach_id` int(10) unsigned NOT NULL,
+  `thumb_media_id` varchar(60) NOT NULL,
+  `thumb_url` varchar(255) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `author` varchar(30) NOT NULL,
+  `digest` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `content_source_url` varchar(200) NOT NULL,
+  `show_cover_pic` tinyint(3) unsigned NOT NULL,
+  `url` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `uniacid` (`uniacid`),
+  KEY `attach_id` (`attach_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `cityid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '城市id',
+  `name` varchar(50) NOT NULL COMMENT '分类名称',
+  `logo` varchar(500) DEFAULT '' COMMENT '商家logo',
+  `parentid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类ID,0为第一级',
+  `isfirst` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '首页推荐',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否开启',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_city` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `name` varchar(50) NOT NULL COMMENT '城市名称',
+  `parentid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类ID,0为第一级',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否开启',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weid` int(11) NOT NULL COMMENT '公众号ID',
+  `storeid` int(11) NOT NULL COMMENT '商家ID',
+  `parentid` int(11) DEFAULT '0' COMMENT '父级ID',
+  `from_user` varchar(100) DEFAULT NULL,
+  `nickname` varchar(30) DEFAULT NULL,
+  `content` varchar(600) DEFAULT NULL,
+  `top` tinyint(1) NOT NULL DEFAULT '0' COMMENT '置顶',
+  `displayorder` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) DEFAULT '0',
+  `dateline` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '商家id',
+  `title` varchar(200) NOT NULL DEFAULT '',
+  `thumb` varchar(500) NOT NULL DEFAULT '',
+  `summary` varchar(1000) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `address` varchar(200) NOT NULL DEFAULT '',
+  `start_time` int(10) NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `end_time` int(10) NOT NULL DEFAULT '0' COMMENT '结束时间',
+  `url` varchar(200) NOT NULL DEFAULT '',
+  `isfirst` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否在首页显示',
+  `top` tinyint(1) NOT NULL DEFAULT '0' COMMENT '置顶',
+  `mode` tinyint(1) NOT NULL DEFAULT '0' COMMENT '加入方式 0:后台 1:申请',
+  `checked` tinyint(1) NOT NULL DEFAULT '1' COMMENT '审核',
+  `displayorder` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `dateline` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_setting` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL COMMENT '所属帐号',
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `bg` varchar(500) NOT NULL DEFAULT '',
+  `announcement` text NOT NULL COMMENT '公告',
+  `address` varchar(200) NOT NULL DEFAULT '' COMMENT '地址',
+  `tel` varchar(20) NOT NULL DEFAULT '' COMMENT '联系电话',
+  `place` varchar(200) NOT NULL DEFAULT '',
+  `lat` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '经度',
+  `lng` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '纬度',
+  `location_p` varchar(100) NOT NULL DEFAULT '' COMMENT '省',
+  `location_c` varchar(100) NOT NULL DEFAULT '' COMMENT '市',
+  `location_a` varchar(100) NOT NULL DEFAULT '' COMMENT '区',
+  `pagesize` int(10) unsigned NOT NULL DEFAULT '5' COMMENT '每页显示数据量',
+  `topcolor` varchar(20) NOT NULL DEFAULT '' COMMENT '顶部字体颜色',
+  `topbgcolor` varchar(20) NOT NULL DEFAULT '' COMMENT '顶部字体颜色',
+  `announcebordercolor` varchar(20) NOT NULL DEFAULT '' COMMENT '公告边框颜色',
+  `announcebgcolor` varchar(20) NOT NULL DEFAULT '' COMMENT '公告背景颜色',
+  `announcecolor` varchar(20) NOT NULL DEFAULT '' COMMENT '公告字体颜色',
+  `storestitlecolor` varchar(20) NOT NULL DEFAULT '' COMMENT '商家名称颜色',
+  `storesstatuscolor` varchar(20) NOT NULL DEFAULT '' COMMENT '商家状态颜色',
+  `showcity` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示城市选择',
+  `settled` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否开启入驻',
+  `feedback_show_enable` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `feedback_check_enable` tinyint(1) NOT NULL DEFAULT '1' COMMENT '留言是否需要审核',
+  `scroll_announce` varchar(500) NOT NULL DEFAULT '' COMMENT '公告',
+  `scroll_announce_speed` tinyint(2) unsigned NOT NULL DEFAULT '6' COMMENT '公告滚动速度',
+  `scroll_announce_link` varchar(500) NOT NULL DEFAULT '' COMMENT '公告链接',
+  `scroll_announce_enable` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示顶部公告',
+  `copyright` varchar(500) NOT NULL DEFAULT '' COMMENT '底部版权',
+  `copyright_link` varchar(500) NOT NULL DEFAULT '' COMMENT '底部版权链接',
+  `menuname1` varchar(50) NOT NULL DEFAULT '' COMMENT '菜单1名称',
+  `menulink1` varchar(500) NOT NULL DEFAULT '' COMMENT '菜单1链接',
+  `menuname2` varchar(50) NOT NULL DEFAULT '' COMMENT '菜单2名称',
+  `menulink2` varchar(500) NOT NULL DEFAULT '' COMMENT '菜单2链接',
+  `menuname3` varchar(50) NOT NULL DEFAULT '' COMMENT '菜单3名称',
+  `menulink3` varchar(500) NOT NULL DEFAULT '' COMMENT '菜单3链接',
+  `appid` varchar(300) NOT NULL DEFAULT '' COMMENT 'appid',
+  `secret` varchar(300) NOT NULL DEFAULT '' COMMENT 'secret',
+  `statistics` text NOT NULL,
+  `share_title` varchar(100) NOT NULL DEFAULT '',
+  `share_image` varchar(500) NOT NULL DEFAULT '',
+  `share_desc` varchar(200) NOT NULL DEFAULT '',
+  `share_cancel` varchar(200) NOT NULL DEFAULT '',
+  `share_url` varchar(200) NOT NULL DEFAULT '',
+  `share_num` int(10) NOT NULL DEFAULT '0',
+  `follow_url` varchar(200) NOT NULL DEFAULT '',
+  `dateline` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_slide` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `cityid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '城市id',
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `url` varchar(200) NOT NULL DEFAULT '',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `attachment` varchar(100) NOT NULL DEFAULT '',
+  `displayorder` int(10) unsigned NOT NULL DEFAULT '0',
+  `isfirst` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否在首页显示',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `dateline` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_businesscenter_stores` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL DEFAULT '0' COMMENT '公众号id',
+  `cityid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '城市id',
+  `pcate` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '类别id',
+  `ccate` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '类别id',
+  `title` varchar(50) NOT NULL DEFAULT '' COMMENT '名称',
+  `description` text COMMENT '描述',
+  `url` varchar(200) NOT NULL DEFAULT '' COMMENT '微站网址',
+  `site_name` varchar(100) NOT NULL DEFAULT '' COMMENT '微站按钮名称',
+  `site_url` varchar(200) NOT NULL DEFAULT '' COMMENT '微站网址',
+  `shop_name` varchar(100) NOT NULL DEFAULT '' COMMENT '折扣按钮名称',
+  `shop_url` varchar(400) NOT NULL DEFAULT '' COMMENT '折扣链接',
+  `logo` varchar(200) NOT NULL DEFAULT '' COMMENT '商家logo',
+  `qrcode` varchar(200) NOT NULL DEFAULT '' COMMENT '商家logo',
+  `qrcode_url` varchar(400) NOT NULL DEFAULT '' COMMENT '素材链接',
+  `qrcode_description` varchar(200) NOT NULL DEFAULT '' COMMENT '二维码文字提示',
+  `services` varchar(200) NOT NULL DEFAULT '' COMMENT '服务范围',
+  `username` varchar(20) NOT NULL DEFAULT '' COMMENT '联系人',
+  `tel` varchar(20) NOT NULL DEFAULT '' COMMENT '联系电话',
+  `address` varchar(200) NOT NULL COMMENT '地址',
+  `discounts` varchar(200) NOT NULL COMMENT '会员折扣',
+  `consume` varchar(20) NOT NULL COMMENT '人均消费',
+  `level` tinyint(1) NOT NULL DEFAULT '1' COMMENT '级别',
+  `place` varchar(200) NOT NULL DEFAULT '',
+  `lat` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '经度',
+  `lng` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '纬度',
+  `hours` varchar(200) NOT NULL DEFAULT '' COMMENT '营业时间',
+  `starttime` varchar(10) NOT NULL DEFAULT '09:00' COMMENT '开始时间',
+  `endtime` varchar(10) NOT NULL DEFAULT '18:00' COMMENT '结束时间',
+  `location_p` varchar(100) NOT NULL DEFAULT '' COMMENT '省',
+  `location_c` varchar(100) NOT NULL DEFAULT '' COMMENT '市',
+  `location_a` varchar(100) NOT NULL DEFAULT '' COMMENT '区',
+  `isfirst` tinyint(1) NOT NULL DEFAULT '0' COMMENT '首页推荐',
+  `top` tinyint(1) NOT NULL DEFAULT '0' COMMENT '推荐商家，相当于置顶',
+  `from_user` varchar(50) NOT NULL DEFAULT '',
+  `businesslicense` varchar(200) NOT NULL DEFAULT '' COMMENT '营业执照',
+  `mode` tinyint(1) NOT NULL DEFAULT '0' COMMENT '加入方式 0:后台 1:申请入驻',
+  `checked` tinyint(1) NOT NULL DEFAULT '1' COMMENT '审核',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否在手机端显示',
+  `displayorder` tinyint(3) NOT NULL DEFAULT '0',
+  `updatetime` int(10) NOT NULL DEFAULT '0',
+  `dateline` int(10) NOT NULL DEFAULT '0',
+  `time_enable1` tinyint(1) NOT NULL DEFAULT '1' COMMENT '启用营业时间1',
+  `time_enable2` tinyint(1) NOT NULL DEFAULT '1' COMMENT '启用营业时间2',
+  `time_enable3` tinyint(1) NOT NULL DEFAULT '1' COMMENT '启用营业时间3',
+  `starttime2` varchar(10) NOT NULL DEFAULT '09:00' COMMENT '开始时间',
+  `endtime2` varchar(10) NOT NULL DEFAULT '18:00' COMMENT '结束时间',
+  `starttime3` varchar(10) NOT NULL DEFAULT '09:00' COMMENT '开始时间',
+  `endtime3` varchar(10) NOT NULL DEFAULT '18:00' COMMENT '结束时间',
+  `share_title` varchar(100) NOT NULL DEFAULT '',
+  `share_desc` varchar(200) NOT NULL DEFAULT '',
+  `share_cancel` varchar(200) NOT NULL DEFAULT '',
+  `share_url` varchar(200) NOT NULL DEFAULT '',
+  `share_num` int(10) NOT NULL DEFAULT '0',
+  `isvip` tinyint(1) NOT NULL DEFAULT '0' COMMENT '时间限制',
+  `vip_start` int(10) NOT NULL DEFAULT '0',
+  `vip_end` int(10) NOT NULL DEFAULT '0',
+  `follow_url` varchar(200) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_account` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `uid` int(10) unsigned NOT NULL DEFAULT '0',
+  `pwd` varchar(50) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `from_user` varchar(100) NOT NULL DEFAULT '',
+  `storeid` varchar(1000) NOT NULL,
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_ad` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `url` varchar(200) NOT NULL DEFAULT '',
+  `thumb` varchar(500) NOT NULL DEFAULT '',
+  `position` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1:首页,2:商家页',
+  `starttime` int(10) NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `endtime` int(10) NOT NULL DEFAULT '0' COMMENT '结束时间',
+  `displayorder` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `dateline` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_address` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `from_user` varchar(50) NOT NULL,
+  `realname` varchar(20) NOT NULL,
+  `mobile` varchar(11) NOT NULL,
+  `address` varchar(300) NOT NULL,
+  `dateline` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_area` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `name` varchar(50) NOT NULL COMMENT '区域名称',
+  `parentid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类ID,0为第一级',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_blacklist` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `from_user` varchar(100) DEFAULT '' COMMENT '用户ID',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `dateline` int(10) DEFAULT '0' COMMENT '创建时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_openid` (`from_user`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_cart` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `goodsid` int(11) NOT NULL,
+  `goodstype` tinyint(1) NOT NULL DEFAULT '1',
+  `price` varchar(10) NOT NULL,
+  `from_user` varchar(50) NOT NULL,
+  `total` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=402 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '门店id',
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `name` varchar(50) NOT NULL COMMENT '分类名称',
+  `parentid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类ID,0为第一级',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否开启',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_collection` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `from_user` varchar(50) NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `dateline` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_email_setting` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `email_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '开启邮箱提醒',
+  `email_host` varchar(50) DEFAULT '' COMMENT '邮箱服务器',
+  `email_send` varchar(100) DEFAULT '' COMMENT '商户发送邮件邮箱',
+  `email_pwd` varchar(20) DEFAULT '' COMMENT '邮箱密码',
+  `email_user` varchar(100) DEFAULT '' COMMENT '发信人名称',
+  `email` varchar(100) DEFAULT '' COMMENT '商户接收邮件邮箱',
+  `email_business_tpl` varchar(200) DEFAULT '' COMMENT '商户接收内容模板',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_fans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weid` int(11) DEFAULT '0',
+  `from_user` varchar(50) DEFAULT '' COMMENT '用户ID',
+  `nickname` varchar(50) DEFAULT '',
+  `headimgurl` varchar(500) DEFAULT '',
+  `username` varchar(50) DEFAULT '',
+  `mobile` varchar(50) DEFAULT '',
+  `address` varchar(200) DEFAULT '',
+  `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '性别',
+  `lat` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '经度',
+  `lng` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '纬度',
+  `status` tinyint(1) DEFAULT '1',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_rid` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_goods` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `storeid` int(10) unsigned NOT NULL,
+  `weid` int(10) unsigned NOT NULL,
+  `pcate` int(10) unsigned NOT NULL DEFAULT '0',
+  `ccate` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `recommend` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否推荐',
+  `displayorder` int(10) unsigned NOT NULL DEFAULT '0',
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `thumb` varchar(500) NOT NULL DEFAULT '',
+  `unitname` varchar(5) NOT NULL DEFAULT '份',
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `taste` varchar(1000) NOT NULL DEFAULT '' COMMENT '口味',
+  `isspecial` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `marketprice` varchar(10) NOT NULL DEFAULT '',
+  `productprice` varchar(10) NOT NULL DEFAULT '',
+  `credit` int(10) NOT NULL DEFAULT '0',
+  `subcount` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '被点次数',
+  `dateline` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_intelligent` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '门店id',
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `name` int(10) NOT NULL DEFAULT '0' COMMENT '适用人数',
+  `content` varchar(1000) NOT NULL DEFAULT '' COMMENT '商品',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否开启',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_mealtime` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `begintime` varchar(20) DEFAULT '09:00' COMMENT '开始时间',
+  `endtime` varchar(20) DEFAULT '18:00' COMMENT '结束时间',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否开启',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_nave` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `type` int(10) NOT NULL DEFAULT '-1' COMMENT '链接类型 -1:自定义 1:首页2:门店3:菜单列表4:我的菜单',
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '导航名称',
+  `link` varchar(200) NOT NULL DEFAULT '' COMMENT '导航链接',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否开启',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL COMMENT '公众号id',
+  `storeid` int(10) unsigned NOT NULL COMMENT '门店id',
+  `from_user` varchar(50) NOT NULL,
+  `ordersn` varchar(30) NOT NULL COMMENT '订单号',
+  `totalnum` tinyint(4) DEFAULT NULL COMMENT '总数量',
+  `totalprice` varchar(10) NOT NULL COMMENT '总金额',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '-1取消状态，0普通状态，1为确认付款方式，2为成功',
+  `ispay` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0,1,2',
+  `paytype` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '1余额，2微信支付，3到付',
+  `transid` varchar(30) NOT NULL DEFAULT '0' COMMENT '微信支付单号',
+  `username` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名',
+  `address` varchar(250) NOT NULL DEFAULT '' COMMENT '地址',
+  `tel` varchar(50) NOT NULL DEFAULT '' COMMENT '联系电话',
+  `meal_time` varchar(50) NOT NULL DEFAULT '' COMMENT '就餐时间',
+  `counts` tinyint(4) DEFAULT '0' COMMENT '预订人数',
+  `seat_type` tinyint(1) DEFAULT '0' COMMENT '位置类型1大厅2包间',
+  `carports` tinyint(3) DEFAULT '0' COMMENT '车位',
+  `goodsprice` decimal(10,2) DEFAULT '0.00',
+  `dispatchprice` decimal(10,2) DEFAULT '0.00',
+  `dining_mode` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '用餐类型 1:到店 2:外卖',
+  `remark` varchar(1000) NOT NULL DEFAULT '' COMMENT '备注',
+  `reply` varchar(1000) NOT NULL DEFAULT '' COMMENT '回复',
+  `paydetail` varchar(1000) NOT NULL DEFAULT '' COMMENT '消费详细信息',
+  `credit` varchar(10) NOT NULL DEFAULT '0' COMMENT '赠送积分',
+  `tables` varchar(10) NOT NULL DEFAULT '' COMMENT '桌号',
+  `tablezonesid` varchar(10) NOT NULL DEFAULT '' COMMENT '桌台类别',
+  `print_sta` tinyint(1) DEFAULT '-1' COMMENT '打印状态',
+  `sign` tinyint(1) NOT NULL DEFAULT '0' COMMENT '-1拒绝，0未处理，1已处理',
+  `isfinish` tinyint(1) NOT NULL DEFAULT '0',
+  `isemail` tinyint(1) NOT NULL DEFAULT '0',
+  `issms` tinyint(1) NOT NULL DEFAULT '0',
+  `istpl` tinyint(1) NOT NULL DEFAULT '0',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_order_goods` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `goodsid` int(10) unsigned NOT NULL,
+  `price` varchar(10) NOT NULL,
+  `total` int(10) unsigned NOT NULL DEFAULT '1',
+  `dateline` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=370 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_print_order` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `orderid` int(10) unsigned NOT NULL,
+  `print_usr` varchar(50) DEFAULT '',
+  `print_status` tinyint(1) DEFAULT '-1',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=82 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_print_setting` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `title` varchar(200) DEFAULT '',
+  `print_status` tinyint(1) NOT NULL,
+  `type` varchar(50) DEFAULT 'hongxin',
+  `member_code` varchar(100) DEFAULT '' COMMENT '商户代码',
+  `feyin_key` varchar(100) DEFAULT '' COMMENT 'api密钥',
+  `print_type` tinyint(1) NOT NULL,
+  `print_usr` varchar(50) DEFAULT '',
+  `print_nums` tinyint(3) DEFAULT '1',
+  `print_top` varchar(40) DEFAULT '',
+  `print_bottom` varchar(40) DEFAULT '',
+  `qrcode_status` tinyint(1) NOT NULL DEFAULT '0',
+  `qrcode_url` varchar(200) DEFAULT '',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_queue_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `queueid` int(10) unsigned NOT NULL DEFAULT '0',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `from_user` varchar(200) NOT NULL DEFAULT '',
+  `num` varchar(100) NOT NULL DEFAULT '',
+  `mobile` varchar(30) NOT NULL DEFAULT '',
+  `usercount` int(10) unsigned NOT NULL DEFAULT '0',
+  `isnotify` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_queue_setting` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `title` varchar(200) NOT NULL DEFAULT '',
+  `limit_num` int(10) unsigned NOT NULL DEFAULT '0',
+  `prefix` varchar(50) NOT NULL,
+  `starttime` varchar(50) NOT NULL DEFAULT '00:00' COMMENT '开始时间',
+  `endtime` varchar(50) NOT NULL DEFAULT '23:59' COMMENT '结束时间',
+  `notify_number` int(10) NOT NULL DEFAULT '0' COMMENT '通知人数',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_reply` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rid` int(10) unsigned NOT NULL,
+  `weid` int(10) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `type` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '入口类型',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '入口门店',
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `picture` varchar(255) NOT NULL DEFAULT '',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加日期',
+  PRIMARY KEY (`id`),
+  KEY `idx_rid` (`rid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_reservation` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `tablezonesid` int(10) unsigned NOT NULL DEFAULT '0',
+  `time` varchar(200) NOT NULL DEFAULT '',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_setting` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `title` varchar(50) DEFAULT '' COMMENT '网站名称',
+  `thumb` varchar(200) DEFAULT '' COMMENT '背景图',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `mode` tinyint(1) NOT NULL DEFAULT '0' COMMENT '模式',
+  `is_notice` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '开启提醒',
+  `entrance_type` tinyint(1) unsigned NOT NULL COMMENT '入口类型1:首页2门店列表3商品列表4我的菜单',
+  `entrance_storeid` tinyint(1) unsigned NOT NULL COMMENT '入口门店id',
+  `order_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '订餐开启',
+  `dining_mode` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '用餐类型 1:到店 2:外卖',
+  `istplnotice` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否模版通知',
+  `tplneworder` varchar(200) DEFAULT '' COMMENT '模板id',
+  `tplnewqueue` varchar(200) DEFAULT '' COMMENT '模板id',
+  `searchword` varchar(1000) DEFAULT '' COMMENT '搜索关键字',
+  `tpluser` text COMMENT '通知用户',
+  `sms_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '开启短信提醒',
+  `sms_username` varchar(20) DEFAULT '' COMMENT '平台帐号',
+  `sms_pwd` varchar(20) DEFAULT '' COMMENT '平台密码',
+  `sms_mobile` varchar(20) DEFAULT '' COMMENT '商户接收短信手机',
+  `email_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '开启邮箱提醒',
+  `email_host` varchar(50) DEFAULT '' COMMENT '邮箱服务器',
+  `email_send` varchar(100) DEFAULT '' COMMENT '商户发送邮件邮箱',
+  `email_pwd` varchar(20) DEFAULT '' COMMENT '邮箱密码',
+  `email_user` varchar(100) DEFAULT '' COMMENT '发信人名称',
+  `email` varchar(100) DEFAULT '' COMMENT '平台接收邮件邮箱',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_sms_checkcode` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `from_user` varchar(100) DEFAULT '' COMMENT '用户ID',
+  `mobile` varchar(30) DEFAULT '' COMMENT '手机',
+  `checkcode` varchar(100) DEFAULT '' COMMENT '验证码',
+  `status` tinyint(1) unsigned DEFAULT '0' COMMENT '状态 0未使用1已使用',
+  `dateline` int(10) DEFAULT '0' COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_sms_setting` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `sms_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '开启短信提醒',
+  `sms_verify_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '开启短信验证提醒',
+  `sms_username` varchar(20) DEFAULT '' COMMENT '平台帐号',
+  `sms_pwd` varchar(20) DEFAULT '' COMMENT '平台密码',
+  `sms_mobile` varchar(20) DEFAULT '' COMMENT '商户接收短信手机',
+  `sms_verify_tpl` varchar(120) DEFAULT '' COMMENT '验证短信模板',
+  `sms_business_tpl` varchar(120) DEFAULT '' COMMENT '商户短信模板',
+  `sms_user_tpl` varchar(120) DEFAULT '' COMMENT '用户短信模板',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_stores` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL DEFAULT '0' COMMENT '公众号id',
+  `from_user` varchar(200) NOT NULL DEFAULT '',
+  `areaid` int(10) NOT NULL DEFAULT '0' COMMENT '区域id',
+  `typeid` int(10) NOT NULL DEFAULT '0' COMMENT '商家类型',
+  `title` varchar(50) NOT NULL DEFAULT '' COMMENT '名称',
+  `logo` varchar(500) NOT NULL DEFAULT '' COMMENT '商家logo',
+  `info` varchar(1000) NOT NULL DEFAULT '' COMMENT '简短描述',
+  `content` text NOT NULL COMMENT '简介',
+  `announce` varchar(1000) NOT NULL DEFAULT '' COMMENT '通知',
+  `tel` varchar(20) NOT NULL DEFAULT '' COMMENT '联系电话',
+  `location_p` varchar(100) NOT NULL DEFAULT '' COMMENT '省',
+  `location_c` varchar(100) NOT NULL DEFAULT '' COMMENT '市',
+  `location_a` varchar(100) NOT NULL DEFAULT '' COMMENT '区',
+  `address` varchar(200) DEFAULT '' COMMENT '地址',
+  `qq` varchar(20) DEFAULT '',
+  `weixin` varchar(20) DEFAULT '',
+  `place` varchar(200) NOT NULL DEFAULT '',
+  `lat` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '经度',
+  `lng` decimal(18,10) NOT NULL DEFAULT '0.0000000000' COMMENT '纬度',
+  `password` varchar(20) NOT NULL DEFAULT '' COMMENT '登录密码',
+  `hours` varchar(200) NOT NULL DEFAULT '' COMMENT '营业时间',
+  `recharging_password` varchar(20) NOT NULL DEFAULT '' COMMENT '充值密码',
+  `thumb_url` varchar(1000) DEFAULT NULL,
+  `enable_wifi` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否有wifi',
+  `enable_card` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否能刷卡',
+  `enable_room` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否有包厢',
+  `enable_park` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否有停车',
+  `is_hot` tinyint(1) NOT NULL DEFAULT '0' COMMENT '搜索页显示',
+  `is_rest` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否休息中',
+  `is_show` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否在手机端显示',
+  `is_sms` tinyint(1) NOT NULL DEFAULT '0',
+  `is_hour` tinyint(1) NOT NULL DEFAULT '0',
+  `is_meal` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否店内点餐',
+  `is_delivery` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否外卖订餐',
+  `is_snack` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否支持快餐',
+  `is_reservation` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否支持预定',
+  `is_queue` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否支持排队',
+  `is_intelligent` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否支持套餐',
+  `coupon_title1` varchar(100) NOT NULL DEFAULT '' COMMENT '优惠名称',
+  `coupon_link1` varchar(200) NOT NULL DEFAULT '' COMMENT '优惠链接',
+  `coupon_title2` varchar(100) NOT NULL DEFAULT '' COMMENT '优惠名称',
+  `coupon_link2` varchar(200) NOT NULL DEFAULT '' COMMENT '优惠链接',
+  `coupon_title3` varchar(100) NOT NULL DEFAULT '' COMMENT '优惠名称',
+  `coupon_link3` varchar(200) NOT NULL DEFAULT '' COMMENT '优惠链接',
+  `btn_reservation` varchar(100) NOT NULL DEFAULT '预定' COMMENT '预定按钮',
+  `btn_eat` varchar(100) NOT NULL DEFAULT '点菜' COMMENT '点菜按钮',
+  `btn_delivery` varchar(100) NOT NULL DEFAULT '外卖' COMMENT '外卖按钮',
+  `btn_snack` varchar(100) NOT NULL DEFAULT '快餐' COMMENT '快餐按钮',
+  `btn_queue` varchar(100) NOT NULL DEFAULT '排队' COMMENT '排队按钮',
+  `btn_intelligent` varchar(100) NOT NULL DEFAULT '套餐' COMMENT '套餐按钮',
+  `begintime` varchar(20) DEFAULT '09:00' COMMENT '开始时间',
+  `endtime` varchar(20) DEFAULT '18:00' COMMENT '结束时间',
+  `delivery_within_days` int(10) NOT NULL DEFAULT '0' COMMENT '允许提前几天点外卖',
+  `delivery_radius` decimal(18,1) NOT NULL DEFAULT '0.0' COMMENT '半径',
+  `not_in_delivery_radius` tinyint(1) NOT NULL DEFAULT '1' COMMENT '在配送半径之外是否允许下单',
+  `sendingprice` varchar(10) NOT NULL DEFAULT '' COMMENT '起送价格',
+  `dispatchprice` decimal(10,2) DEFAULT '0.00',
+  `freeprice` decimal(10,2) DEFAULT '0.00',
+  `consume` varchar(20) NOT NULL COMMENT '人均消费',
+  `level` tinyint(1) NOT NULL DEFAULT '1' COMMENT '级别',
+  `displayorder` tinyint(3) NOT NULL DEFAULT '0',
+  `updatetime` int(10) NOT NULL DEFAULT '0',
+  `dateline` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_store_setting` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `storeid` int(10) unsigned NOT NULL,
+  `order_enable` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '订餐开启',
+  `dateline` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_tables` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `tablezonesid` int(10) unsigned NOT NULL DEFAULT '0',
+  `title` varchar(200) NOT NULL DEFAULT '' COMMENT '名字(桌台号)',
+  `user_count` int(10) NOT NULL DEFAULT '0' COMMENT '可供就餐人数',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_tables_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `tablesid` int(10) unsigned NOT NULL DEFAULT '0',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `from_user` varchar(200) NOT NULL DEFAULT '',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=103 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_tablezones` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `storeid` int(10) unsigned NOT NULL DEFAULT '0',
+  `title` varchar(200) NOT NULL DEFAULT '',
+  `limit_price` int(10) unsigned NOT NULL DEFAULT '0',
+  `reservation_price` int(10) unsigned NOT NULL DEFAULT '0',
+  `table_count` int(10) NOT NULL DEFAULT '0' COMMENT '餐桌数量',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_template` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL DEFAULT '0',
+  `template_name` varchar(50) NOT NULL DEFAULT 'style1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_weisrc_dish_type` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '所属帐号',
+  `name` varchar(50) NOT NULL COMMENT '类型名称',
+  `parentid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上级分类ID,0为第一级',
+  `displayorder` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+]]></install>
+	<uninstall><![CDATA[uninstall.php]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.woaiyingxiao.com" versionCode="0.52,0.6,0.7">
+	<application setting="false">
+		<name><![CDATA[疯狂打企鹅]]></name>
+		<identifie><![CDATA[q305000063_qie]]></identifie>
+		<version><![CDATA[1.0.3]]></version>
+		<type><![CDATA[activity]]></type>
+		<ability><![CDATA[打的越远企鹅看得起你哦]]></ability>
+		<description><![CDATA[打的越远企鹅看得起你哦，但在实际生活中还是要爱护动物的^)^]]></description>		<author><![CDATA[微营销：QQ36671150]]></author>
+		<url><![CDATA[http://www.wx866.com/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+			<message type="subscribe" />
+			<message type="unsubscribe" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="view" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="click" />
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="游戏设置" do="play" state="" direct="false" />
+		</cover>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

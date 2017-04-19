@@ -1,0 +1,68 @@
+array (
+  'channel' => 'wx_pub',
+  'order_no' => '20160710332000097380',
+  'amount' => 1,
+  'open_id' => 'oH3KFw4o32DMaaJZtsduumHRY0Yc',
+  'cztype' => 0,
+)
+array (
+  'channel' => 'alipay_wap',
+  'order_no' => '20160710332000097380',
+  'amount' => 1,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'alipay_wap',
+  'order_no' => '20160710465346283821',
+  'amount' => 1,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'bfb_wap',
+  'order_no' => '20160710465346283821',
+  'amount' => 1,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'alipay_wap',
+  'order_no' => '20160710500704221006',
+  'amount' => 10,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'wx_pub',
+  'order_no' => '20160712009139609361',
+  'amount' => 10,
+  'open_id' => 'oH3KFwyRRk_bANHF_dm5kmkHXe5M',
+  'cztype' => 0,
+)
+array (
+  'channel' => 'alipay_wap',
+  'order_no' => '20160712009139609361',
+  'amount' => 10,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'bfb_wap',
+  'order_no' => '20160712009139609361',
+  'amount' => 10,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'bfb_wap',
+  'order_no' => '20160712114375353026',
+  'amount' => 20,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'alipay_wap',
+  'order_no' => '20160712114675300602',
+  'amount' => 10,
+  'cztype' => 0,
+)
+array (
+  'channel' => 'alipay_wap',
+  'order_no' => '20160712223642561071',
+  'amount' => 10,
+  'cztype' => 0,
+)

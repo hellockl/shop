@@ -1,0 +1,889 @@
+2017-04-15 04:15:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492200905</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 04:15:05 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 04:15:05 response :
+------------
+
+2017-04-15 09:06:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492218403</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:06:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:06:43 response :
+------------
+
+2017-04-15 09:08:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492218513</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:08:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:08:33 response :
+------------
+
+2017-04-15 09:10:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492218657</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:10:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:10:57 response :
+------------
+
+2017-04-15 09:11:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492218703</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:11:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:11:43 response :
+------------
+
+2017-04-15 09:13:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492218794</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:13:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:13:14 response :
+------------
+
+2017-04-15 09:29:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492219753</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:29:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:29:13 response :
+------------
+
+2017-04-15 09:30:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492219842</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:30:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:30:42 response :
+------------
+
+2017-04-15 09:37:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492220279</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:38:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:38:00 response :
+------------
+
+2017-04-15 09:43:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492220580</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:43:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:43:00 response :
+------------
+
+2017-04-15 09:43:30 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492220610</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414945737</MenuId>
+</xml>
+
+2017-04-15 09:43:30 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:43:30 response :
+------------
+
+2017-04-15 09:48:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492220923</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 09:48:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:48:43 response :
+------------
+
+2017-04-15 09:55:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492221348</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 09:55:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:55:48 response :
+------------
+
+2017-04-15 09:57:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492221459</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 09:57:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:57:39 response :
+------------
+
+2017-04-15 09:57:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492221474</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=mc&a=bond&do=mycard&]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 09:57:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 09:57:54 response :
+------------
+
+2017-04-15 10:06:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492221972</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:06:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:06:12 response :
+------------
+
+2017-04-15 10:11:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492222279</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:11:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:11:20 response :
+------------
+
+2017-04-15 10:12:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492222374</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:12:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:12:55 response :
+------------
+
+2017-04-15 10:13:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492222438</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:13:58 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:13:58 response :
+------------
+
+2017-04-15 10:20:52 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492222852</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:20:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:20:52 response :
+------------
+
+2017-04-15 10:30:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492223445</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-04-15 10:32:17 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492223537</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-04-15 10:32:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:32:17 response :
+------------
+
+2017-04-15 10:32:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492223543</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:32:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:32:23 response :
+------------
+
+2017-04-15 10:39:06 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492223946</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 10:39:06 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 10:39:06 response :
+------------
+
+2017-04-15 11:12:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492225976</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 11:12:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 11:12:56 response :
+------------
+
+2017-04-15 11:12:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492225977</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 11:12:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 11:12:57 response :
+------------
+
+2017-04-15 14:28:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492237695</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:28:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:28:15 response :
+------------
+
+2017-04-15 14:28:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vlIpc5PVieP__UyAgTi3POI]]></FromUserName>
+<CreateTime>1492237695</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-04-15 14:28:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:28:15 response :
+------------
+
+2017-04-15 14:28:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vlIpc5PVieP__UyAgTi3POI]]></FromUserName>
+<CreateTime>1492237698</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:28:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:28:18 response :
+------------
+
+2017-04-15 14:28:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vrDNvnHtnUugEJgkfuF60zA]]></FromUserName>
+<CreateTime>1492237717</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:28:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:28:38 response :
+------------
+
+2017-04-15 14:28:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vlIpc5PVieP__UyAgTi3POI]]></FromUserName>
+<CreateTime>1492237723</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:28:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:28:43 response :
+------------
+
+2017-04-15 14:37:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vtvriNhkjD_pEFbIw2oe7PI]]></FromUserName>
+<CreateTime>1492238244</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:37:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:37:24 response :
+------------
+
+2017-04-15 14:38:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vtvriNhkjD_pEFbIw2oe7PI]]></FromUserName>
+<CreateTime>1492238318</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:38:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:38:38 response :
+------------
+
+2017-04-15 14:42:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vlIpc5PVieP__UyAgTi3POI]]></FromUserName>
+<CreateTime>1492238570</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 14:42:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 14:42:50 response :
+------------
+
+2017-04-15 15:14:30 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492240470</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 15:14:30 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 15:14:30 response :
+------------
+
+2017-04-15 15:17:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492240623</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 15:17:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 15:17:03 response :
+------------
+
+2017-04-15 15:21:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492240892</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 15:21:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 15:21:32 response :
+------------
+
+2017-04-15 15:21:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492240912</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=mc&a=bond&do=mycard&]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 15:21:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 15:21:53 response :
+------------
+
+2017-04-15 15:21:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492240916</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=mc&]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 15:21:57 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 15:21:57 response :
+------------
+
+2017-04-15 15:21:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492240919</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 15:22:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 15:22:00 response :
+------------
+
+2017-04-15 22:29:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vtvriNhkjD_pEFbIw2oe7PI]]></FromUserName>
+<CreateTime>1492266541</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-15 22:29:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-15 22:29:01 response :
+------------
+

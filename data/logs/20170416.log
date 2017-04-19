@@ -1,0 +1,22 @@
+2017-04-16 12:18:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_1557bd037cb0]]></ToUserName>
+<FromUserName><![CDATA[oKSD-vgRrIGHuD1WtAazw0_pnjV8]]></FromUserName>
+<CreateTime>1492316303</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://wx.fishingboats.cn/app/index.php?i=3&c=entry&eid=1]]></EventKey>
+<MenuId>414952670</MenuId>
+</xml>
+
+2017-04-16 12:18:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2017-04-16 12:18:23 response :
+------------
+
