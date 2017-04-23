@@ -190,6 +190,9 @@ select { width:100px;height:40px;position:absolute;left:0; -webkit-appearance: n
       <%if order.status==3 && order.iscomment==0%>
              <div class="paysub1 order_comment">评价</div>
       <%/if%>
+      <%if order.status==3%>
+             <div class="paysub1 order_apply">申请维权</div>
+      <%/if%>
       <%if order.status==3 && order.iscomment==1%>
              <div class="paysub1 order_comment">追加评价</div>
       <%/if%>
