@@ -822,6 +822,31 @@ if ($operation == "display") {
             "columns" => $columns
         ));
     }
+    if($_GPC['import']==1){
+        ca("order.op.import");
+        plog('order.list.import', '订单核销');
+        
+        if(!empty($_FILES['fileName'])){
+        
+            $rows           = m('excel')->import('fileName');
+            foreach ($rows as $key=>$val){
+                $data = array(
+                    'is_check'=>1
+                );
+                pdo_update('ewei_shop_order', $data, array(
+                    'expresssn' => $val[1],
+                    'expresscom' => $val[0],
+                ));
+                
+            }
+            message('核销成功！', $this->createWebUrl('order/list', array(
+                    'op' => 'display',
+                    'status'=>'8'
+            )), 'success');
+        }
+    }
+    
+    
 	/* 供应商插件 */
     if(p('supplier')){
         if($perm_role == 1){

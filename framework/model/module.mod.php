@@ -59,6 +59,7 @@ function module_types() {
 
 
 function module_entries($name, $types = array(), $rid = 0, $args = null) {
+    
 	global $_W;
 	$ts = array('rule', 'cover', 'menu', 'home', 'profile', 'shortcut', 'function', 'mine');
 	if(empty($types)) {
@@ -71,6 +72,9 @@ function module_entries($name, $types = array(), $rid = 0, $args = null) {
 	$pars = array();
 	$pars[':module'] = $name;
 	$bindings = pdo_fetchall($sql, $pars);
+        if($name=='ewei_shop'){
+            unset($bindings['9'],$bindings['17'],$bindings['24'],$bindings['22'],$bindings['23'],$bindings['24'],$bindings['26']);
+        }
 	$entries = array();
 	foreach($bindings as $bind) {
 		if(!empty($bind['call'])) {
