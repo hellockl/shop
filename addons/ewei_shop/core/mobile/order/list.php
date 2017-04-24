@@ -20,7 +20,9 @@ if ($_W['isajax']) {
         );
         if ($status != '') {
             if ($status != 4) {
-                if ($status == 2) {
+                if($status==1){
+                    $condition .= ' and ((status=0 and paytype=3) or status=1)';
+                }elseif($status == 2) {
                     $condition .= ' and (status=2 or status=0 and paytype=3)';
                 } else if ($status == 0) {
                     $condition .= ' and status=0 and paytype!=3';

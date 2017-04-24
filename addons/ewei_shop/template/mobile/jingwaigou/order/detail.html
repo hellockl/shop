@@ -165,7 +165,7 @@ select { width:100px;height:40px;position:absolute;left:0; -webkit-appearance: n
      <div style="height:80px;"></div>
      
 <div class="detail_pay">
-      <%if order.status==0%>
+      <%if order.status==0 && order.paytype!=3%>
            <div class="paysub" onclick="location.href ='{php echo $this->createMobileUrl('order/pay')}&orderid=<%order.id%>&openid={$openid}'">付款</div>
            <div class="paysub1 order_cancel" style='position:relative;width:63px;'>
                <span style='position:absolute;display:block;width:70px;top:-10px;color:#5f6e8b'>取消订单</span>
@@ -178,6 +178,9 @@ select { width:100px;height:40px;position:absolute;left:0; -webkit-appearance: n
            </select>
              </div>
       <%/if%>
+      <%if order.status==0 && order.paytype ==3%>
+            <div class="paysub order_complete">确认收货</div>
+      <%/if%>
       <%if order.status==1%>
              <div class="paysub order_refund">申请退款</div>
       <%/if%>
@@ -186,6 +189,9 @@ select { width:100px;height:40px;position:absolute;left:0; -webkit-appearance: n
       <%/if%>
       <%if order.status==3 && order.iscomment==0%>
              <div class="paysub1 order_comment">评价</div>
+      <%/if%>
+      <%if order.status==3%>
+             <div class="paysub1 order_apply">申请维权</div>
       <%/if%>
       <%if order.status==3 && order.iscomment==1%>
              <div class="paysub1 order_comment">追加评价</div>

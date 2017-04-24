@@ -194,6 +194,7 @@ div.flicking_con a.on{background-position:0 -9px}
          </div>
         <%/if%>  </div>
       </div>
+      <!--
     <div class="good_speci" <%if goods.canbuy && goods.timebuy=='0' && goods.userbuy=='1'  && goods.groupbuy=='1'  && goods.levelbuy=='1'%> onClick="choose()"<%/if%>>
         <%if goods.canbuy%>
             <%if goods.istime=='1'%>
@@ -218,6 +219,7 @@ div.flicking_con a.on{background-position:0 -9px}
             商品已下架
         <%/if%>
        <i class="fa fa-angle-right" style="float:right; line-height:44px; font-size:26px;"></i></div>
+      -->
     <div class="good_shop">
         <div class="shop1" onclick="location.href='<%shop.url%>'"><img src="<%shop.logo%>"><div class="shop_info"><%shop.name%><br><span>全部宝贝<%goodscount%>个</span></div></div>
         <div class="shop2">
@@ -225,7 +227,7 @@ div.flicking_con a.on{background-position:0 -9px}
             <div class="sub2" onclick="location.href='<%shop.url%>'"> <i class="fa fa-gift" o></i> 进店逛逛</div>
         </div>
     </div>
-    {template 'new/baozheng'}<div style="height:-10px"></div>
+    <!--{template 'new/baozheng'}<div style="height:-10px"></div>-->
     {template 'new/good_info2'}
     <!--
     <div class="good_info2">

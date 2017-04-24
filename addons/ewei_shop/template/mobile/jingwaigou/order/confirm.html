@@ -183,12 +183,14 @@
         <div class="tips">确认订单后请尽快付款，<br>过时订单将自动取消。</div>
     </div>
     <input type="hidden"  id="dispatchtype" value="0" />
+    <!--
     <%if carrier_list.length>0%>
     <div class="addorder_nav">
         <div class="nav selected" data-nav='0'>快递配送</div>
         <div class="nav"  data-nav='1'>上门自提</div>
     </div>
     <%/if%>
+    -->
     <div class="addorder_user addorder_user_0">
         <input type='hidden' id='addressid' value='<%address.id%>' />
         <div class="info" id='address_select' <%if !address %>style='display:none'<%/if%>>
