@@ -7,7 +7,7 @@
 
 
 	<?php  if(!empty($_W['isfounder']) || empty($_W['setting']['permurls']['sections']) || in_array('platform', $_W['setting']['permurls']['sections'])) { ?><li<?php  if(FRAME == 'platform') { ?> class="active"<?php  } ?> id="liebiaoyuan"><a href="<?php  echo url('home/welcome/platform');?>"><i class="fa fa-cog"></i>基础设置</a></li><?php  } ?>
- <li><a href="<?php echo $_W['siteroot'].'web/index.php?c=home&a=welcome&do=ext&m=ewei_shop'?>"><i class="pull-right"></i> 商城管理</a></li>
+ <li><a href="<?php echo $_W['siteroot'].'web/index.php?c=home&a=welcome&do=ext&m=ewei_shop'?>"><i class="pull-right"></i> 人人店管理</a></li>
              <li><a href="<?php echo $_W['siteroot'].'web/index.php?c=site&a=entry&method=cover&p=commission&do=plugin&m=ewei_shop'?>"><i class="pull-right"></i>分销快捷设置</a></li>   
  
  

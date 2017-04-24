@@ -3,7 +3,7 @@
 </div>	
 <!--尾部--> 
 <div class="foot" id="footer">
-	
+
 </div>
 
 </body>
